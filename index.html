@@ -3,11 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Oraciones de la procesión</title>
-<meta name="description" content="Te Deum, Acto de Desagravio y Trisagio para seguir la procesión desde el celular.">
+<title>Vigilia de Acción de Gracias</title>
+<meta name="description" content="Oraciones de la procesión con el Santísimo: Te Deum, Acto de Desagravio y Trisagio. Parroquia San Juan María Vianney, San Isidro Miranda. 7 de noviembre de 2026.">
 <meta name="theme-color" content="#121110">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="icon-192.png">
+<link rel="preload" as="image" href="logo-parroquia.png">
 <link rel="apple-touch-icon" href="icon-192.png">
 <script>
 /* Aplica lo guardado antes de pintar, para evitar un destello */
@@ -17,10 +18,10 @@ document.documentElement.classList.add('js');
 </script>
 <style>
 :root{--tam:24px;--alto-sup:58px;--alto-inf:68px}
-[data-tema=oscuro]{--fondo:#121110;--texto:#f2eee6;--suave:#b9b2a6;--acento:#ffb4a0;--barra:#ff9d85;--panel:#24211e;--borde:#46413b;--sobre:#2b1109}
-[data-tema=claro]{--fondo:#fffdf8;--texto:#17140f;--suave:#5c554a;--acento:#9c1c14;--barra:#b3241a;--panel:#f0ebe0;--borde:#c9c1b1;--sobre:#fff}
-[data-tema=sepia]{--fondo:#f1e4c9;--texto:#2b2114;--suave:#5e4f38;--acento:#872310;--barra:#a02c15;--panel:#e4d4b2;--borde:#b9a57f;--sobre:#fff}
-[data-tema=contraste]{--fondo:#000;--texto:#fff;--suave:#fff;--acento:#ffe600;--barra:#ffe600;--panel:#1c1c1c;--borde:#fff;--sobre:#000}
+[data-tema=oscuro]{--fondo:#121110;--texto:#f2eee6;--suave:#b9b2a6;--acento:#ffb4a0;--barra:#ff9d85;--panel:#24211e;--borde:#46413b;--sobre:#2b1109;--oro:#d9ac4a;--azul:#f2eee6}
+[data-tema=claro]{--fondo:#fffdf8;--texto:#17140f;--suave:#5c554a;--acento:#9c1c14;--barra:#b3241a;--panel:#f0ebe0;--borde:#c9c1b1;--sobre:#fff;--oro:#b4842a;--azul:#0b2254}
+[data-tema=sepia]{--fondo:#f1e4c9;--texto:#2b2114;--suave:#5e4f38;--acento:#872310;--barra:#a02c15;--panel:#e4d4b2;--borde:#b9a57f;--sobre:#fff;--oro:#a0761f;--azul:#0b2254}
+[data-tema=contraste]{--fondo:#000;--texto:#fff;--suave:#fff;--acento:#ffe600;--barra:#ffe600;--panel:#1c1c1c;--borde:#fff;--sobre:#000;--oro:#ffe600;--azul:#fff}
 [data-letra=serif]{--fuente:Georgia,"Noto Serif","Droid Serif","Times New Roman",serif}
 [data-letra=sans]{--fuente:Verdana,"Noto Sans",Roboto,"Segoe UI",Arial,sans-serif}
 *{box-sizing:border-box}
@@ -31,6 +32,7 @@ body{margin:0;background:var(--fondo);color:var(--texto);font-family:var(--fuent
 /* Barras fijas: su tamaño no cambia con la letra, para que siempre quepan */
 #tabs{position:sticky;top:0;z-index:5;display:flex;gap:6px;padding:7px max(8px,env(safe-area-inset-right)) 7px max(8px,env(safe-area-inset-left));background:var(--fondo);border-bottom:1px solid var(--borde);min-height:var(--alto-sup)}
 .tab{flex:1 1 0;min-width:0;display:flex;align-items:center;justify-content:center;min-height:44px;border-radius:9px;background:var(--panel);color:var(--texto);font-size:17px;font-weight:600;text-decoration:none;text-align:center;padding:2px 4px}
+.tab.casa{flex:0 0 46px}
 .tab[aria-current=page]{background:var(--acento);color:var(--sobre)}
 #barra{position:fixed;z-index:5;left:0;right:0;bottom:0;display:grid;grid-template-columns:1fr 1fr 1.25fr 1.25fr;gap:6px;padding:7px max(8px,env(safe-area-inset-right)) calc(7px + env(safe-area-inset-bottom)) max(8px,env(safe-area-inset-left));background:var(--fondo);border-top:1px solid var(--borde)}
 button{font:inherit;color:var(--texto);background:var(--panel);border:1px solid var(--borde);border-radius:9px;min-height:52px;font-size:18px;font-weight:600;cursor:pointer;touch-action:manipulation}
@@ -67,6 +69,27 @@ p{margin:0}
 .c-p{font-weight:700;color:var(--texto);border-left:4px solid var(--barra);padding-left:5px}
 .c-r{color:var(--acento);font-weight:600}
 
+
+/* Portada */
+#portada{text-align:center}
+.logos{display:grid;grid-template-columns:1fr 1fr;align-items:center;justify-items:center;gap:10px;max-width:440px;margin:.2rem auto .9rem;padding:14px 12px;background:#fff;border-radius:16px;border:1px solid var(--oro)}
+.logos img{display:block;width:100%;height:auto;max-width:175px}
+.aclama{color:var(--acento);font-weight:700;font-size:1em;line-height:1.3;margin:0}
+.anm{color:var(--azul);font-weight:700;font-size:1.12em;line-height:1.25;margin:.55em 0 .1em}
+.datos{color:var(--suave);font-size:.74em;line-height:1.4}
+.regla{width:5.5em;height:2px;background:var(--oro);margin:.85em auto;border:0}
+.vig{color:var(--acento);font-style:italic;font-weight:700;font-size:2.5em;line-height:1.05;margin:0}
+.vig2{color:var(--azul);font-weight:700;font-size:1.1em;letter-spacing:.015em;line-height:1.2;margin:.15em 0 .1em}
+.vig3{color:var(--suave);font-size:.82em;margin:0}
+.fecha{color:var(--acento);font-weight:700;font-size:1em;line-height:1.3;margin:.1em 0 0}
+.proc{color:var(--azul);font-weight:700;font-size:1em;margin:0 0 .5em;line-height:1.3}
+.proc span{display:block;font-weight:400;font-size:.8em;color:var(--suave)}
+.est{display:block;text-decoration:none;text-align:left;color:var(--texto);background:var(--panel);border:1px solid var(--borde);border-left:5px solid var(--oro);border-radius:10px;padding:.5em .7em;margin:.5em 0;min-height:52px;line-height:1.25;font-weight:700;font-size:.95em}
+.est small{display:block;font-weight:400;font-size:.76em;color:var(--suave);margin-bottom:.1em}
+.firmas{display:grid;grid-template-columns:1fr 1fr;gap:1em;margin-top:1.4em;padding-top:.9em;border-top:1px solid var(--borde);font-size:.66em;line-height:1.3;color:var(--suave)}
+.firmas b{display:block;color:var(--texto)}
+@media (max-width:380px){.firmas{grid-template-columns:1fr}}
+
 /* Paneles */
 dialog{width:min(100vw - 20px,520px);max-height:calc(100dvh - 20px);border:1px solid var(--borde);border-radius:14px;padding:0;background:var(--fondo);color:var(--texto)}
 dialog::backdrop{background:rgba(0,0,0,.65)}
@@ -86,8 +109,26 @@ dialog::backdrop{background:rgba(0,0,0,.65)}
 </style>
 </head>
 <body>
-<nav id="tabs" class="ui" aria-label="Oraciones"><a class="tab" href="#te-deum" data-doc="te-deum">Te Deum</a><a class="tab" href="#desagravio" data-doc="desagravio">Desagravio</a><a class="tab" href="#trisagio" data-doc="trisagio">Trisagio</a></nav>
+<nav id="tabs" class="ui" aria-label="Oraciones"><a class="tab casa" href="#portada" data-doc="portada" aria-label="Portada"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path fill="currentColor" d="M12 3 2.5 11.2l1.3 1.5L5 11.7V21h5.5v-6h3v6H19v-9.3l1.2 1 1.3-1.5z"/></svg></a><a class="tab" href="#te-deum" data-doc="te-deum">Te Deum</a><a class="tab" href="#desagravio" data-doc="desagravio">Desagravio</a><a class="tab" href="#trisagio" data-doc="trisagio">Trisagio</a></nav>
 <main>
+<article id="portada" class="doc" aria-label="Portada">
+<div class="logos"><img src="logo-parroquia.png" width="520" height="520" alt="Logo de la Parroquia San Juan María Vianney"><img src="medalla-anm.png" width="520" height="520" alt="Medalla de la Adoración Nocturna Mexicana"></div>
+<p class="aclama">¡Adorado sea el Santísimo Sacramento!<br>¡Ave María Purísima!</p>
+<p class="anm">Adoración Nocturna Mexicana</p>
+<p class="datos">Diócesis de Querétaro<br>Decanato: Nuestra Señora de Guadalupe, Pedro Escobedo<br>Parroquia: San Juan María Vianney, San Isidro Miranda</p>
+<hr class="regla">
+<h1 class="vig" style="text-align:center">Vigilia</h1>
+<p class="vig2">de Acción de Gracias</p>
+<p class="vig3">por el tercer año en promoción</p>
+<hr class="regla">
+<p class="fecha">Sábado 7 de noviembre del 2026</p>
+<hr class="regla">
+<p class="proc">Procesión con el Santísimo<span>18:15 hrs</span></p>
+<a class="est" href="#te-deum" data-doc="te-deum"><small>Estación 1</small>Te Deum</a>
+<a class="est" href="#desagravio" data-doc="desagravio"><small>Estación 2</small>Acto de Desagravio</a>
+<a class="est" href="#trisagio" data-doc="trisagio"><small>Estación 3</small>Trisagio a la Santísima Trinidad</a>
+<div class="firmas"><p><b>Pbro. José Luis Trejo Olvera</b>Párroco y Director Espiritual</p><p><b>Hno. Rodrigo Nungaray</b>Adorador y promotor de la sección</p></div>
+</article>
 <article id="te-deum" class="doc" aria-label="Te Deum">
 <p class="clave"><span class="c-p">En negritas con barra</span>: lo que responde el pueblo. <span class="c-r">En color</span>: indicaciones, no se leen en voz alta.</p>
 <h1 id="te-deum-s1">TE DEUM</h1>
@@ -393,7 +434,7 @@ dialog::backdrop{background:rgba(0,0,0,.65)}
 
 <script>
 (function(){
-var NAV={"te-deum": [["te-deum-s1", "Te Deum"], ["te-deum-s2", "Oración"], ["te-deum-s3", "Te Deum en acción de gracias"], ["te-deum-s4", "Oración de acción de gracias"], ["te-deum-s5", "Preces expiatorias"]], "desagravio": [["desagravio-s1", "Acto de desagravio"], ["desagravio-s2", "Oración por los agonizantes"], ["desagravio-s3", "Deprecaciones en cada hora de vela"], ["desagravio-s4", "Oración a san Miguel, arcángel"]], "trisagio": [["trisagio-s1", "Tercer turno de vela"], ["trisagio-s2", "Trisagio a la Santísima Trinidad"], ["trisagio-s3", "Acto de contrición"], ["trisagio-s4", "Himno"], ["trisagio-s5", "Antífona"], ["trisagio-s6", "Oración"], ["trisagio-s7", "Gozos a la Santísima Trinidad"], ["trisagio-s8", "Antífona final"], ["trisagio-s9", "Oración a la Virgen"], ["trisagio-s10", "Ofrecimiento para ganar las indulgencias"], ["trisagio-s11", "Acto de adoración de san Alfonso María de Ligorio"]]}, MIN=16, MAX=52, PASO=2;
+var NAV={"te-deum": [["te-deum-s1", "Te Deum"], ["te-deum-s2", "Oración"], ["te-deum-s3", "Te Deum en acción de gracias"], ["te-deum-s4", "Oración de acción de gracias"], ["te-deum-s5", "Preces expiatorias"]], "desagravio": [["desagravio-s1", "Acto de desagravio"], ["desagravio-s2", "Oración por los agonizantes"], ["desagravio-s3", "Deprecaciones en cada hora de vela"], ["desagravio-s4", "Oración a san Miguel, arcángel"]], "trisagio": [["trisagio-s1", "Tercer turno de vela"], ["trisagio-s2", "Trisagio a la Santísima Trinidad"], ["trisagio-s3", "Acto de contrición"], ["trisagio-s4", "Himno"], ["trisagio-s5", "Antífona"], ["trisagio-s6", "Oración"], ["trisagio-s7", "Gozos a la Santísima Trinidad"], ["trisagio-s8", "Antífona final"], ["trisagio-s9", "Oración a la Virgen"], ["trisagio-s10", "Ofrecimiento para ganar las indulgencias"], ["trisagio-s11", "Acto de adoración de san Alfonso María de Ligorio"]], "portada": [["te-deum", "Estación 1: Te Deum"], ["desagravio", "Estación 2: Acto de Desagravio"], ["trisagio", "Estación 3: Trisagio a la Santísima Trinidad"]]}, MIN=16, MAX=52, PASO=2;
 var raiz=document.documentElement, $=function(i){return document.getElementById(i)};
 var docs=[].slice.call(document.querySelectorAll('.doc')), tabs=[].slice.call(document.querySelectorAll('.tab'));
 var aj={tema:'oscuro',letra:'serif',tam:24,vela:'si'}, pos={}, actual=null, lock=null;
@@ -429,7 +470,7 @@ function mostrar(id,sec){
   else irBloque(pos[id]||0);
   lista();
 }
-tabs.forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();mostrar(a.dataset.doc);try{history.replaceState(null,'','#'+a.dataset.doc)}catch(x){}})});
+[].forEach.call(document.querySelectorAll('.tab,.est'),function(a){a.addEventListener('click',function(e){e.preventDefault();mostrar(a.dataset.doc);try{history.replaceState(null,'','#'+a.dataset.doc)}catch(x){}})});
 
 /* Tamaño de letra: conserva el lugar de lectura */
 function aplicar(){
@@ -454,13 +495,14 @@ $('mas').onclick=function(){tam(PASO)};
   });
 });
 
+
 /* Paneles */
 function lista(){
   var ul=$('lista');ul.textContent='';
   (NAV[actual]||[]).forEach(function(n){
     var li=document.createElement('li'),a=document.createElement('a');
     a.href='#'+n[0];a.textContent=n[1];
-    a.onclick=function(e){e.preventDefault();$('dlg-ira').close();mostrar(actual,n[0])};
+    a.onclick=function(e){e.preventDefault();$('dlg-ira').close();var el=$(n[0]);if(el&&el.classList.contains('doc'))mostrar(n[0]);else mostrar(actual,n[0])};
     li.appendChild(a);ul.appendChild(li);
   });
 }

@@ -1,6 +1,6 @@
 /* Guarda la página para leerla sin señal. Con señal, muestra siempre lo más reciente. */
-var CACHE='oraciones-v1';
-var ARCHIVOS=['./','index.html','manifest.webmanifest','icon-192.png','icon-512.png'];
+var CACHE='vigilia-v2';
+var ARCHIVOS=['./','index.html','manifest.webmanifest','icon-192.png','icon-512.png','logo-parroquia.png','medalla-anm.png'];
 self.addEventListener('install',function(e){
   e.waitUntil(caches.open(CACHE).then(function(c){return c.addAll(ARCHIVOS)}).then(function(){return self.skipWaiting()}));
 });
