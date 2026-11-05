@@ -86,9 +86,8 @@ p{margin:0}
 .proc span{display:block;font-weight:400;font-size:.8em;color:var(--suave)}
 .est{display:block;text-decoration:none;text-align:left;color:var(--texto);background:var(--panel);border:1px solid var(--borde);border-left:5px solid var(--oro);border-radius:10px;padding:.5em .7em;margin:.5em 0;min-height:52px;line-height:1.25;font-weight:700;font-size:.95em}
 .est small{display:block;font-weight:400;font-size:.76em;color:var(--suave);margin-bottom:.1em}
-.firmas{display:grid;grid-template-columns:1fr 1fr;gap:1em;margin-top:1.4em;padding-top:.9em;border-top:1px solid var(--borde);font-size:.66em;line-height:1.3;color:var(--suave)}
+.firmas{margin-top:1.4em;padding-top:.9em;border-top:1px solid var(--borde);font-size:.66em;line-height:1.3;color:var(--suave)}
 .firmas b{display:block;color:var(--texto)}
-@media (max-width:380px){.firmas{grid-template-columns:1fr}}
 
 /* Paneles */
 dialog{width:min(100vw - 20px,520px);max-height:calc(100dvh - 20px);border:1px solid var(--borde);border-radius:14px;padding:0;background:var(--fondo);color:var(--texto)}
@@ -109,7 +108,7 @@ dialog::backdrop{background:rgba(0,0,0,.65)}
 </style>
 </head>
 <body>
-<nav id="tabs" class="ui" aria-label="Oraciones"><a class="tab casa" href="#portada" data-doc="portada" aria-label="Portada"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path fill="currentColor" d="M12 3 2.5 11.2l1.3 1.5L5 11.7V21h5.5v-6h3v6H19v-9.3l1.2 1 1.3-1.5z"/></svg></a><a class="tab" href="#te-deum" data-doc="te-deum">Te Deum</a><a class="tab" href="#desagravio" data-doc="desagravio">Desagravio</a><a class="tab" href="#trisagio" data-doc="trisagio">Trisagio</a></nav>
+<nav id="tabs" class="ui" aria-label="Oraciones"><a class="tab casa" href="#portada" data-doc="portada" aria-label="Portada"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path fill="currentColor" d="M12 3 2.5 11.2l1.3 1.5L5 11.7V21h5.5v-6h3v6H19v-9.3l1.2 1 1.3-1.5z"/></svg></a><a class="tab" href="#te-deum" data-doc="te-deum" aria-label="Estación 1: Te Deum">Estación 1</a><a class="tab" href="#desagravio" data-doc="desagravio" aria-label="Estación 2: Desagravio">Estación 2</a><a class="tab" href="#trisagio" data-doc="trisagio" aria-label="Estación 3: Trisagio">Estación 3</a></nav>
 <main>
 <article id="portada" class="doc" aria-label="Portada">
 <div class="logos"><img src="logo-parroquia.png" width="520" height="520" alt="Logo de la Parroquia San Juan María Vianney"><img src="medalla-anm.png" width="520" height="520" alt="Medalla de la Adoración Nocturna Mexicana"></div>
@@ -127,7 +126,7 @@ dialog::backdrop{background:rgba(0,0,0,.65)}
 <a class="est" href="#te-deum" data-doc="te-deum"><small>Estación 1</small>Te Deum</a>
 <a class="est" href="#desagravio" data-doc="desagravio"><small>Estación 2</small>Acto de Desagravio</a>
 <a class="est" href="#trisagio" data-doc="trisagio"><small>Estación 3</small>Trisagio a la Santísima Trinidad</a>
-<div class="firmas"><p><b>Pbro. José Luis Trejo Olvera</b>Párroco y Director Espiritual</p><p><b>Hno. Rodrigo Nungaray</b>Adorador y promotor de la sección</p></div>
+<div class="firmas"><p><b>Pbro. José Luis Trejo Olvera</b>Párroco y Director Espiritual</p></div>
 </article>
 <article id="te-deum" class="doc" aria-label="Te Deum">
 <p class="clave"><span class="c-p">En negritas con barra</span>: lo que responde el pueblo. <span class="c-r">En color</span>: indicaciones, no se leen en voz alta.</p>
