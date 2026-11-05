@@ -1,0 +1,507 @@
+<!doctype html>
+<html lang="es" data-tema="oscuro" data-letra="serif">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Oraciones de la procesión</title>
+<meta name="description" content="Te Deum, Acto de Desagravio y Trisagio para seguir la procesión desde el celular.">
+<meta name="theme-color" content="#121110">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-192.png">
+<script>
+/* Aplica lo guardado antes de pintar, para evitar un destello */
+try{var d=document.documentElement,g=JSON.parse(localStorage.getItem('ajustes')||'{}');
+if(g.tema)d.dataset.tema=g.tema;if(g.letra)d.dataset.letra=g.letra;if(g.tam)d.style.setProperty('--tam',g.tam+'px');}catch(e){}
+document.documentElement.classList.add('js');
+</script>
+<style>
+:root{--tam:24px;--alto-sup:58px;--alto-inf:68px}
+[data-tema=oscuro]{--fondo:#121110;--texto:#f2eee6;--suave:#b9b2a6;--acento:#ffb4a0;--barra:#ff9d85;--panel:#24211e;--borde:#46413b;--sobre:#2b1109}
+[data-tema=claro]{--fondo:#fffdf8;--texto:#17140f;--suave:#5c554a;--acento:#9c1c14;--barra:#b3241a;--panel:#f0ebe0;--borde:#c9c1b1;--sobre:#fff}
+[data-tema=sepia]{--fondo:#f1e4c9;--texto:#2b2114;--suave:#5e4f38;--acento:#872310;--barra:#a02c15;--panel:#e4d4b2;--borde:#b9a57f;--sobre:#fff}
+[data-tema=contraste]{--fondo:#000;--texto:#fff;--suave:#fff;--acento:#ffe600;--barra:#ffe600;--panel:#1c1c1c;--borde:#fff;--sobre:#000}
+[data-letra=serif]{--fuente:Georgia,"Noto Serif","Droid Serif","Times New Roman",serif}
+[data-letra=sans]{--fuente:Verdana,"Noto Sans",Roboto,"Segoe UI",Arial,sans-serif}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%;scroll-padding-top:calc(var(--alto-sup) + 12px);scroll-padding-bottom:calc(var(--alto-inf) + 12px)}
+body{margin:0;background:var(--fondo);color:var(--texto);font-family:var(--fuente);font-size:var(--tam);line-height:1.5;overflow-wrap:break-word}
+.ui,.ui *{font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;line-height:1.2}
+
+/* Barras fijas: su tamaño no cambia con la letra, para que siempre quepan */
+#tabs{position:sticky;top:0;z-index:5;display:flex;gap:6px;padding:7px max(8px,env(safe-area-inset-right)) 7px max(8px,env(safe-area-inset-left));background:var(--fondo);border-bottom:1px solid var(--borde);min-height:var(--alto-sup)}
+.tab{flex:1 1 0;min-width:0;display:flex;align-items:center;justify-content:center;min-height:44px;border-radius:9px;background:var(--panel);color:var(--texto);font-size:17px;font-weight:600;text-decoration:none;text-align:center;padding:2px 4px}
+.tab[aria-current=page]{background:var(--acento);color:var(--sobre)}
+#barra{position:fixed;z-index:5;left:0;right:0;bottom:0;display:grid;grid-template-columns:1fr 1fr 1.25fr 1.25fr;gap:6px;padding:7px max(8px,env(safe-area-inset-right)) calc(7px + env(safe-area-inset-bottom)) max(8px,env(safe-area-inset-left));background:var(--fondo);border-top:1px solid var(--borde)}
+button{font:inherit;color:var(--texto);background:var(--panel);border:1px solid var(--borde);border-radius:9px;min-height:52px;font-size:18px;font-weight:600;cursor:pointer;touch-action:manipulation}
+button:active{background:var(--borde)}
+button:disabled{opacity:.4}
+#menos{font-size:19px}#mas{font-size:27px}
+:focus-visible{outline:3px solid var(--acento);outline-offset:2px}
+
+/* Texto */
+main{max-width:34em;margin:0 auto;padding:.7em max(18px,env(safe-area-inset-right)) calc(var(--alto-inf) + 2.5em) max(18px,env(safe-area-inset-left))}
+.js .doc{display:none}.js .doc.activo{display:block}
+h1{color:var(--acento);font-size:1.4em;line-height:1.2;text-align:center;font-weight:700;margin:.5em 0 .7em}
+h2{color:var(--acento);font-size:1.18em;line-height:1.25;font-weight:700;margin:1.6em 0 .5em}
+h3{color:var(--acento);font-size:1.02em;line-height:1.25;font-weight:700;margin:1.1em 0 .4em}
+p{margin:0}
+.rub{color:var(--acento);font-size:.8em;line-height:1.4;margin:1.05em 0 .4em}
+.neg{color:var(--texto)}
+.meta{color:var(--suave);font-size:.85em;margin:.4em 0}
+.pr{margin:.5em 0 .75em}
+.ver{margin:.5em 0 .8em}
+.ln{display:block;padding-left:1.4em;text-indent:-1.4em}
+.sang .ln+.ln{padding-left:2em}
+.vr{margin:.32em 0;padding-left:1.45em;text-indent:-1.45em}
+.m{color:var(--acento);font-weight:700;display:inline-block;width:1.45em;text-indent:0}
+.pueblo{font-weight:700;border-left:4px solid var(--barra);margin-left:-13px;padding-left:9px}
+.vr.pueblo{padding-left:calc(9px + 1.45em)}
+.rub + .ver.pueblo,.ver.pueblo{margin-top:.3em}
+.ind{list-style:none;padding:0;margin:.5em 0 .8em}
+.ind li{display:flex;justify-content:space-between;gap:1em;padding:.2em 0;border-bottom:1px dotted var(--borde)}
+.ind li span:last-child{white-space:nowrap}
+.nota{color:var(--suave);font-size:.8em;margin-top:1em;font-style:italic}
+.fuente{color:var(--suave);font-size:.72em;margin-top:2.2em;padding-top:.8em;border-top:1px solid var(--borde)}
+.clave{color:var(--suave);font-size:.68em;line-height:1.4;margin:.2em 0 .9em;padding:.55em .7em;background:var(--panel);border-radius:8px}
+.c-p{font-weight:700;color:var(--texto);border-left:4px solid var(--barra);padding-left:5px}
+.c-r{color:var(--acento);font-weight:600}
+
+/* Paneles */
+dialog{width:min(100vw - 20px,520px);max-height:calc(100dvh - 20px);border:1px solid var(--borde);border-radius:14px;padding:0;background:var(--fondo);color:var(--texto)}
+dialog::backdrop{background:rgba(0,0,0,.65)}
+.cab{position:sticky;top:0;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 12px 10px 16px;background:var(--fondo);border-bottom:1px solid var(--borde)}
+.cab h2{all:unset;font-size:21px;font-weight:700}
+.cab button{padding:0 16px;min-width:92px}
+.cuerpo{padding:6px 16px 18px}
+.grupo{margin:14px 0 0}
+.grupo>h3{all:unset;display:block;font-size:17px;font-weight:700;margin-bottom:8px}
+.ops{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.ops button[aria-pressed=true]{background:var(--acento);color:var(--sobre);border-color:var(--acento)}
+.ayuda{font-size:15px;line-height:1.35;color:var(--suave);margin:8px 0 0}
+#lista{list-style:none;margin:0;padding:0}
+#lista a{display:flex;align-items:center;min-height:52px;padding:8px 4px;color:var(--texto);text-decoration:none;font-size:18px;border-bottom:1px solid var(--borde)}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:auto}}
+@media print{#tabs,#barra,dialog,.clave{display:none}.js .doc{display:block}main{padding:0}}
+</style>
+</head>
+<body>
+<nav id="tabs" class="ui" aria-label="Oraciones"><a class="tab" href="#te-deum" data-doc="te-deum">Te Deum</a><a class="tab" href="#desagravio" data-doc="desagravio">Desagravio</a><a class="tab" href="#trisagio" data-doc="trisagio">Trisagio</a></nav>
+<main>
+<article id="te-deum" class="doc" aria-label="Te Deum">
+<p class="clave"><span class="c-p">En negritas con barra</span>: lo que responde el pueblo. <span class="c-r">En color</span>: indicaciones, no se leen en voz alta.</p>
+<h1 id="te-deum-s1">TE DEUM</h1>
+<p class="rub">El <span class="neg">Te Deum</span> se recita a dos coros en vigilias ordinarias. Los adoradores del primer coro recitan el primer verso y los adoradores del segundo coro recitan el siguiente verso y así sucesivamente. En vigilias solemnes, los cantores entonan el primer verso y los adoradores todos juntos el siguiente y así sucesivamente.</p>
+<p class="rub">Todos de pies.</p>
+<p class="ver sang"><span class="ln">Señor, Dios eterno, alegres te cantamos,</span><span class="ln">a ti nuestra alabanza,</span><span class="ln">a ti, Padre del cielo, te aclama la creación.</span></p>
+<p class="ver sang"><span class="ln">Postrados ante ti, los ángeles te adoran</span><span class="ln">y cantan sin cesar:</span></p>
+<p class="ver sang"><span class="ln">Santo, santo, santo es el Señor,</span><span class="ln">Dios del universo;</span><span class="ln">llenos están el cielo y la tierra de tu gloria.</span></p>
+<p class="ver sang"><span class="ln">A ti, Señor, te alaba el coro celestial de los apóstoles,</span><span class="ln">la multitud de los profetas te enaltece,</span><span class="ln">y el ejército glorioso de los mártires te aclama.</span></p>
+<p class="ver sang"><span class="ln">A ti la Iglesia santa,</span><span class="ln">por todos los confines extendida,</span><span class="ln">con júbilo te adora y canta tu grandeza:</span></p>
+<p class="ver sang"><span class="ln">Padre, infinitamente santo,</span><span class="ln">Hijo eterno, unigénito de Dios,</span><span class="ln">Santo Espíritu de amor y de consuelo.</span></p>
+<p class="ver sang"><span class="ln">Oh Cristo, tú eres el Rey de la gloria,</span><span class="ln">tú el Hijo y Palabra del Padre,</span><span class="ln">tú el Rey de toda la creación.</span></p>
+<p class="ver sang"><span class="ln">Tú, para salvar al hombre,</span><span class="ln">tomaste la condición de esclavo</span><span class="ln">en el seno de una virgen.</span></p>
+<p class="ver sang"><span class="ln">Tú destruiste la muerte</span><span class="ln">y abriste a los creyentes las puertas de la gloria.</span></p>
+<p class="ver sang"><span class="ln">Tú vives ahora,</span><span class="ln">inmortal y glorioso, en el reino del Padre.</span></p>
+<p class="ver sang"><span class="ln">Tú vendrás algún día,</span><span class="ln">como juez universal.</span></p>
+<p class="rub">Todos se arrodillan al siguiente verso y se rinde la bandera en el <span class="neg">Te Deum</span> solemne.</p>
+<p class="ver sang"><span class="ln">Muéstrate, pues, amigo y defensor</span><span class="ln">de los hombres que salvaste.</span></p>
+<p class="rub">Aquí se levantan.</p>
+<p class="ver sang"><span class="ln">Y recíbelos por siempre allá en tu reino,</span><span class="ln">con tus santos y elegidos.</span></p>
+<p class="rub">La parte que sigue puede omitirse, si se cree oportuno.</p>
+<p class="ver sang"><span class="ln">Salva a tu pueblo, Señor,</span><span class="ln">y bendice a tu heredad.</span></p>
+<p class="ver sang"><span class="ln">Sé su pastor,</span><span class="ln">y guíalos por siempre.</span></p>
+<p class="ver sang"><span class="ln">Día tras día te bendeciremos</span><span class="ln">y alabaremos tu nombre por siempre jamás.</span></p>
+<p class="ver sang"><span class="ln">Dígnate, Señor,</span><span class="ln">guardarnos de pecado en este día.</span></p>
+<p class="ver sang"><span class="ln">Ten piedad de nosotros, Señor,</span><span class="ln">ten piedad de nosotros.</span></p>
+<p class="ver sang"><span class="ln">Que tu misericordia, Señor, venga sobre nosotros,</span><span class="ln">como lo esperamos de ti.</span></p>
+<p class="ver sang"><span class="ln">A ti, Señor, me acojo,</span><span class="ln">no quede yo nunca defraudado</span></p>
+<p class="rub">Cuando el <span class="neg">Te Deum</span> se reza fuera del Oficio, se dicen las preces de acción de gracias de la p. 203</p>
+<p class="rub">Jefe del primer coro:</p>
+<p class="vr v"><b class="m" aria-label="Versículo">V.</b> Escucha, Señor, nuestra oración.</p>
+<p class="vr r pueblo"><b class="m" aria-label="Respuesta">R.</b> Y llegue a ti nuestro clamor.</p>
+<p class="rub">Cuando quien dirige el Oficio es sacerdote.</p>
+<p class="vr v"><b class="m" aria-label="Versículo">V.</b> El Señor esté con ustedes.</p>
+<p class="vr r pueblo"><b class="m" aria-label="Respuesta">R.</b> Y con tu espíritu.</p>
+<h2 id="te-deum-s2">Oración</h2>
+<p class="rub">Se hace un breve silencio y después dice la oración.</p>
+<p class="pr">Señor nuestro Jesucristo, que en este sacramento admirable nos dejaste el memorial de tu pasión, concédenos venerar de tal modo los sagrados misterios de tu Cuerpo y de tu Sangre que experimentemos constantemente en nosotros el fruto de tu redención. Tú que vives y reinas por los siglos de los siglos.</p>
+<p class="vr r pueblo"><b class="m" aria-label="Respuesta">R.</b> Amén.</p>
+<p class="vr v"><b class="m" aria-label="Versículo">V.</b> Escucha, Señor, nuestra oración.</p>
+<p class="vr r pueblo"><b class="m" aria-label="Respuesta">R.</b> Y llegue a ti nuestro clamor.</p>
+<p class="rub">Cuando quien dirige el Oficio es sacerdote.</p>
+<p class="vr v"><b class="m" aria-label="Versículo">V.</b> El Señor este con ustedes.</p>
+<p class="vr r pueblo"><b class="m" aria-label="Respuesta">R.</b> Y con tu espíritu.</p>
+<p class="rub">Cuando quien dirige el Oficio no es sacerdote.</p>
+<p class="vr v"><b class="m" aria-label="Versículo">V.</b> Bendigamos al Señor.</p>
+<p class="vr r pueblo"><b class="m" aria-label="Respuesta">R.</b> Gracias a Dios.</p>
+<p class="vr v"><b class="m" aria-label="Versículo">V.</b> Las almas de los fieles difuntos por la misericordia de Dios descansen en paz.</p>
+<p class="vr r pueblo"><b class="m" aria-label="Respuesta">R.</b> Amén.</p>
+<h2 id="te-deum-s3">Te Deum en acción de gracias</h2>
+<p class="rub">Cuando el <span class="neg">Te Deum</span> se canta fuera de oficio en acción de gracias, cantando el último verso, se dicen de rodillas las preces siguientes:</p>
+<p class="vr v"><b class="m" aria-label="Versículo">V.</b> Bendigamos al Padre, y al Hijo, y al Espíritu Santo.</p>
+<p class="vr r pueblo"><b class="m" aria-label="Respuesta">R.</b> Alabémoslo y ensalcémoslo por todos los siglos.</p>
+<p class="vr v"><b class="m" aria-label="Versículo">V.</b> Bendito eres, Señor, en los cielos.</p>
+<p class="vr r pueblo"><b class="m" aria-label="Respuesta">R.</b> Digno de alabanza, y glorioso y eternamente ensalzado.</p>
+<p class="vr v"><b class="m" aria-label="Versículo">V.</b> Escucha, Señor, nuestra oración.</p>
+<p class="vr r pueblo"><b class="m" aria-label="Respuesta">R.</b> Y llegue a ti nuestro clamor.</p>
+<p class="rub">El sacerdote de pie:</p>
+<p class="vr v"><b class="m" aria-label="Versículo">V.</b> El Señor esté con ustedes.</p>
+<p class="vr r pueblo"><b class="m" aria-label="Respuesta">R.</b> Y con tu espíritu.</p>
+<h2 id="te-deum-s4">Oración</h2>
+<p class="rub">Se hace un breve silencio y después dice la oración.</p>
+<p class="pr">Dios nuestro, cuya misericordia no tiene límites, y cuya bondad es infinita: te damos gracias por los beneficios que nos has concedido, te pedimos siempre tu clemencia, para que así como otorgas las peticiones de los que ruegan, los dispongas a los premios futuros. Por Jesucristo, nuestro Señor.</p>
+<p class="vr r pueblo"><b class="m" aria-label="Respuesta">R.</b> Amén.</p>
+<p class="rub">A continuación se reza una de las</p>
+<h2 id="te-deum-s5">Preces expiatorias</h2>
+<p class="rub">Escogiendo uno de los 5 textos, el que corresponda al tiempo litúrgico.</p>
+<ul class="ind">
+<li><span>Adviento</span><span>p. 126</span></li>
+<li><span>Navidad y Epifanía</span><span>p. 130</span></li>
+<li><span>Cuaresma</span><span>p. 133</span></li>
+<li><span>Pascua y Pentecostés</span><span>p. 137</span></li>
+<li><span>Tiempo Ordinario</span><span>p. 142</span></li>
+</ul>
+<p class="rub">(A la media hora se reza el acto de desagravio p. 145)</p>
+<p class="fuente">Tomado del Ritual de la Adoración Nocturna Mexicana, págs. 199 a 205.</p>
+</article>
+<article id="desagravio" class="doc" aria-label="Desagravio">
+<p class="clave"><span class="c-p">En negritas con barra</span>: lo que responde el pueblo. <span class="c-r">En color</span>: indicaciones, no se leen en voz alta.</p>
+<h1 id="desagravio-s1">ACTO DE DESAGRAVIO</h1>
+<p class="rub">(Nocturno homenaje del P. Llopart, S. J.)</p>
+<p class="rub">Al sonar en el reloj la media de cada hora de guardia, excepto en la última, se orará lo siguiente por el jefe del primer coro.</p>
+<p class="rub">En las vigilias solemnes el acto de desagravio se reza al terminar el <span class="neg">Te Deum</span>.</p>
+<p class="rub">Todos de rodillas. Todos:</p>
+<p class="pr pueblo">Jesús, Salvador de los hombres, cubiertos de confusión nuestros rostros, nos prosternamos en tu presencia eucarística, con nuestros corazones llenos de pena y dolor por las ingratitudes de la humanidad pecadora; pero con infinita misericordia, permite que unamos esta noche nuestros gemidos a los tuyos, nuestras lágrimas a las que brotaron por nuestra causa de tus ojos en el monte de los Olivos, a la sangre que amorosamente derramaste en la cruz. Sagrado Corazón de Jesús, te rogamos por los que no ruegan, te bendecimos por los que te maldicen, te adoramos por los que no te adoran; y con toda la energía de nuestras almas, deseamos bendecirte y alabarte en todos los instantes de esta noche y en todos los sagrarios de la tierra y con los valiosos afectos de tu amante Corazón. Suba, Señor, hasta ti, el doloroso grito de expiación y arrepentimiento sincero de nuestros contritos corazones.</p>
+<p class="rub">Comienza el jefe del primer coro.</p>
+<p class="vr v"><b class="m" aria-label="Versículo">V.</b> Por nuestros pecados, por los de nuestros padres, hermanos y amigos, por los del mundo entero.</p>
+<p class="vr r pueblo"><b class="m" aria-label="Respuesta">R.</b> Perdón, Señor, perdón.</p>
+<p class="vr v"><b class="m" aria-label="Versículo">V.</b> Señor, perdona todos los sacrilegios eucarísticos.</p>
+<p class="vr r pueblo"><b class="m" aria-label="Respuesta">R.</b> Perdón, Señor, perdón.</p>
+<p class="vr v"><b class="m" aria-label="Versículo">V.</b> Señor, perdona todas las comuniones indignamente recibidas.</p>
+<p class="vr r pueblo"><b class="m" aria-label="Respuesta">R.</b> Perdón, Señor, perdón.</p>
+<p class="vr v"><b class="m" aria-label="Versículo">V.</b> Señor, perdona todas las profanaciones al Santísimo Sacramento del altar.</p>
+<p class="vr r pueblo"><b class="m" aria-label="Respuesta">R.</b> Perdón, Señor, perdón.</p>
+<p class="vr v"><b class="m" aria-label="Versículo">V.</b> Señor, perdona todas las irreverencias en la iglesia.</p>
+<p class="vr r pueblo"><b class="m" aria-label="Respuesta">R.</b> Perdón, Señor, perdón.</p>
+<p class="vr v"><b class="m" aria-label="Versículo">V.</b> Señor, perdona todas las profanaciones, desprecios y abandono de los sagrarios.</p>
+<p class="vr r pueblo"><b class="m" aria-label="Respuesta">R.</b> Perdón, Señor, perdón.</p>
+<p class="vr v"><b class="m" aria-label="Versículo">V.</b> Señor, perdona todos los que han abandonado la Iglesia.</p>
+<p class="vr r pueblo"><b class="m" aria-label="Respuesta">R.</b> Perdón, Señor, perdón.</p>
+<p class="vr v"><b class="m" aria-label="Versículo">V.</b> Señor, perdona todo desprecio de los objetos sagrados.</p>
+<p class="vr r pueblo"><b class="m" aria-label="Respuesta">R.</b> Perdón, Señor, perdón.</p>
+<p class="vr v"><b class="m" aria-label="Versículo">V.</b> Señor, perdona a todos los que pasaron a las filas de tus enemigos y todos los pecados del ateísmo.</p>
+<p class="vr r pueblo"><b class="m" aria-label="Respuesta">R.</b> Perdón, Señor, perdón.</p>
+<p class="vr v"><b class="m" aria-label="Versículo">V.</b> Señor, perdona todos los insultos a tu Santo Nombre.</p>
+<p class="vr r pueblo"><b class="m" aria-label="Respuesta">R.</b> Perdón, Señor, perdón.</p>
+<p class="vr v"><b class="m" aria-label="Versículo">V.</b> Señor, perdona toda la frialdad e indiferencia contra tu amor redentor.</p>
+<p class="vr r pueblo"><b class="m" aria-label="Respuesta">R.</b> Perdón, Señor, perdón.</p>
+<p class="vr v"><b class="m" aria-label="Versículo">V.</b> Señor, perdona todas las irreverencias y calumnias contra el Santo Padre.</p>
+<p class="vr r pueblo"><b class="m" aria-label="Respuesta">R.</b> Perdón, Señor, perdón.</p>
+<p class="vr v"><b class="m" aria-label="Versículo">V.</b> Señor, perdona todo desprecio de los obispos y sacerdotes.</p>
+<p class="vr r pueblo"><b class="m" aria-label="Respuesta">R.</b> Perdón, Señor, perdón.</p>
+<p class="vr v"><b class="m" aria-label="Versículo">V.</b> Señor, perdona todo desprecio hacia la santidad de la familia.</p>
+<p class="vr r pueblo"><b class="m" aria-label="Respuesta">R.</b> Perdón, Señor, perdón.</p>
+<p class="vr v"><b class="m" aria-label="Versículo">V.</b> Señor, perdona todo desprecio a la vida humana.</p>
+<p class="vr r pueblo"><b class="m" aria-label="Respuesta">R.</b> Perdón, Señor, perdón.</p>
+<h2 id="desagravio-s2">Oración por los agonizantes</h2>
+<p class="pr">¡Misericordioso Jesús, abrasado en ardiente amor de las almas! Te suplicamos por las agonías de tu Corazón y por los dolores de la Inmaculada Madre; que laves con tu Sangre, a todos los pecadores de la tierra que están en la agonía y tienen hoy que morir.</p>
+<p class="vr r pueblo"><b class="m" aria-label="Respuesta">R.</b> Amén.</p>
+<p class="vr v"><b class="m" aria-label="Versículo">V.</b> Corazón agonizante de Jesús.</p>
+<p class="vr r pueblo"><b class="m" aria-label="Respuesta">R.</b> Ten misericordia de los moribundos.</p>
+<h2 id="desagravio-s3">Deprecaciones en cada hora de vela</h2>
+<p class="rub">Después del acto de desagravio, debe decirse lo siguiente:</p>
+<p class="pr">Oraremos en acción de gracias por todos los beneficios que hemos recibido de nuestro Señor Dios.</p>
+<p class="rub">Padrenuestro, Avemaría y Gloria al Padre.</p>
+<p class="vr v"><b class="m" aria-label="Versículo">V.</b> Alabemos y demos gracias en todo instante y momento.</p>
+<p class="vr r pueblo"><b class="m" aria-label="Respuesta">R.</b> Al Santísimo y Divino Sacramento.</p>
+<p class="pr">Oremos otra vez en expiación por los pecados nacionales.</p>
+<p class="rub">Padrenuestro, Avemaría y Gloria al Padre.</p>
+<p class="rub">Se dicen las siguientes jaculatorias, alternando cada una tres veces:</p>
+<p class="pr">¡México! ¡México! ¡Conviértete al Señor tu Dios!</p>
+<p class="rub">Se contesta las tres veces:</p>
+<p class="pr pueblo">¡Señor! ¡Señor! ¡Perdona a tu pueblo!</p>
+<p class="pr">Oraremos por última vez el Padrenuestro y Avemaría, en sufragio de las ánimas benditas del Purgatorio.</p>
+<p class="rub">Padrenuestro y Avemaría.</p>
+<p class="vr v"><b class="m" aria-label="Versículo">V.</b> Dales, Señor, el descanso eterno.</p>
+<p class="vr r pueblo"><b class="m" aria-label="Respuesta">R.</b> Y la luz perpetua los alumbre.</p>
+<p class="vr v"><b class="m" aria-label="Versículo">V.</b> Descansen en paz.</p>
+<p class="vr r pueblo"><b class="m" aria-label="Respuesta">R.</b> Amén.</p>
+<p class="rub">En seguida se orará en la vigilia ordinaria lo que sigue:</p>
+<h2 id="desagravio-s4">Oración a san Miguel, arcángel</h2>
+<p class="pr">San Miguel Arcángel, defiéndenos en la lucha. Sé nuestro amparo contra la perversidad y las acechanzas del demonio. Que Dios manifieste sobre él su poder, es nuestra humilde súplica; y tú, príncipe de las milicias angélicas, con la fuerza que Dios te ha conferido, arroja al infierno a Satanás y a los demás espíritus malignos que vagan por el mundo para la perdición de las almas.</p>
+<p class="vr r pueblo"><b class="m" aria-label="Respuesta">R.</b> Amén.</p>
+<p class="rub">Una estación mayor al Santísimo Sacramento, por las intenciones de los Pastores mexicanos, particularmente por el de nuestra arquidiócesis (o diócesis).</p>
+<p class="rub">Un Padrenuestro al Sagrado Corazón de Jesús con esta jaculatoria:</p>
+<p class="pr">“Sagrado Corazón de Jesús en ti confío; sé nuestro rey”.</p>
+<p class="rub">Cuatro Avemarías a la Virgen santísima de Guadalupe con esta jaculatoria final:</p>
+<p class="pr">“Virgen santísima de Guadalupe, defiende y salva a tus niños mexicanos”.</p>
+<p class="rub">Un Padrenuestro, Avemaría y Gloria al Padre, por las intenciones de nuestro Consejo arquidiocesano (o diocesano).</p>
+<p class="rub">El resto de la hora de vela, se ocupa en orar una parte del santo Rosario.</p>
+<p class="fuente">Tomado del Ritual de la Adoración Nocturna Mexicana, págs. 145 a 151.</p>
+</article>
+<article id="trisagio" class="doc" aria-label="Trisagio">
+<p class="clave"><span class="c-p">En negritas con barra</span>: lo que responde el pueblo. <span class="c-r">En color</span>: indicaciones, no se leen en voz alta.</p>
+<h1 id="trisagio-s1">TERCER TURNO DE VELA</h1>
+<p class="rub">(A las 12 de la noche)</p>
+<h2 id="trisagio-s2">Trisagio a la Santísima Trinidad</h2>
+<p class="meta">Compuesto por el beato fray Diego José de Cádiz Capuchino.</p>
+<p class="meta">Rememoración de la visión profética de: Isaías 6, 1-3; Apoc 4, 8.</p>
+<p class="rub">Todos de rodillas. Signándose en los labios. Jefe del primer coro:</p>
+<p class="vr v"><b class="m" aria-label="Versículo">V.</b> Abre, Señor, mis labios.</p>
+<p class="vr r pueblo"><b class="m" aria-label="Respuesta">R.</b> Y mi boca cantará tu alabanza.</p>
+<p class="rub">Todos santiguándose. Jefe del primer coro:</p>
+<p class="vr v"><b class="m" aria-label="Versículo">V.</b> Dios mío, ven en mi auxilio.</p>
+<p class="vr r pueblo"><b class="m" aria-label="Respuesta">R.</b> Señor, date prisa en socorrerme.</p>
+<p class="rub">Todos inclinados.</p>
+<p class="vr v"><b class="m" aria-label="Versículo">V.</b> Gloria al Padre y al Hijo y al Espíritu Santo.</p>
+<p class="vr r pueblo"><b class="m" aria-label="Respuesta">R.</b> Como era en el principio ahora y siempre, por los siglos de los siglos. Amén. Aleluya.</p>
+<p class="rub">En lugar de <span class="neg">Aleluya</span> en Cuaresma se dice:</p>
+<p class="pr">Alabanza a ti, Señor, Rey de la gloria eterna.</p>
+<h2 id="trisagio-s3">Acto de contrición</h2>
+<p class="rub">Jefe del primer coro:</p>
+<p class="pr">Amoroso Dios, Trino y Uno, Padre, Hijo y Espíritu Santo, en quien creo, en quien espero, a quien amo con todo mi corazón, cuerpo y alma, sentidos y potencias; por ser tú mi Padre, mi Señor y mi Dios, infinitamente bueno y digno de ser amado sobre todas las cosas me pesa, Trinidad Santísima; me pesa, Trinidad misericordiosa; me pesa, Trinidad amabilísima, de haberte ofendido por ser quien eres; confiado en tu divina gracia, te suplico me concedas, nunca más ofenderte y morir antes que pecar; espero en tu bondad y misericordia infinita me has de perdonar todos mis pecados y me has de dar tus divinos auxilios para perseverar en un verdadero amor y devoción de tu siempre amabilísima Trinidad. Amén.</p>
+<p class="rub">Jefe del primer coro:</p>
+<p class="pr">Santísima Trinidad, Padre, Hijo y Espíritu Santo, te amamos, te adoramos, y te entregamos nuestro ser. Voluntariamente, por amor, te sacrificamos cuanto somos y tenemos para tu mayor gloria y nos abandonamos a tu voluntad divina. Amén.</p>
+<h2 id="trisagio-s4">Himno</h2>
+<p class="rub">Jefe del primer coro:</p>
+<p class="ver"><span class="ln">Ya se aparta el sol ardiente,</span><span class="ln">y así, ¡oh, luz perenne unida!</span><span class="ln">infunde un amor constante</span><span class="ln">en nuestras almas rendidas.</span></p>
+<p class="rub">Todos:</p>
+<p class="ver pueblo"><span class="ln">En la aurora te alabamos</span><span class="ln">y también al mediodía,</span><span class="ln">suspirando por gozar</span><span class="ln">en el cielo de tu vista.</span></p>
+<p class="rub">Todos inclinados hasta el segundo verso.</p>
+<p class="rub">Jefe del primer coro:</p>
+<p class="ver"><span class="ln">Al Padre, al Hijo y a ti, Espíritu que das vida,</span><span class="ln">ahora y siempre se tributen alabanzas infinitas.</span></p>
+<p class="vr r pueblo"><b class="m" aria-label="Respuesta">R.</b> Amén.</p>
+<p class="rub">En vigilias ordinarias se reza un <span class="neg">Padrenuestro</span> sin <span class="neg">Avemaría</span> ni <span class="neg">Gloria al Padre</span> y se semitona pausadamente. En vigilias solemnes se reza un <span class="neg">Padrenuestro</span> sin <span class="neg">Avemaría</span> ni <span class="neg">Gloria al Padre</span> y se canta a dos coros alternando.</p>
+<p class="rub">Jefe del primer coro:</p>
+<p class="ver"><span class="ln">Santo, Santo, Santo, Señor Dios de los ejércitos,</span><span class="ln">llenos están los cielos y la tierra de tu gloria.</span></p>
+<p class="rub">En vigilias ordinarias contestan los demás en igual semitono, en vigilias solemnes cantan:</p>
+<p class="pr pueblo">Gloria al Padre, y al Hijo, y al Espíritu Santo.</p>
+<p class="rub">Esto se dirá alternando tres veces y al fin de cada tres <span class="neg">Gloria al Padre</span>, etcétera, con inclinación.</p>
+<p class="rub">El segundo <span class="neg">Padrenuestro</span> lo reza el jefe del segundo coro y semitona <span class="neg">Santo, Santo, Santo</span>, etcétera, contestando los demás: <span class="neg">Gloria al Padre</span>, etcétera.</p>
+<p class="rub">El tercer <span class="neg">Padrenuestro</span> lo reza el jefe del primer coro.</p>
+<h2 id="trisagio-s5">Antífona</h2>
+<p class="pr">A ti, Dios Padre; a ti, Hijo unigénito; a ti, Espíritu Santo Paráclito, Santa Trinidad, de todo corazón te confesamos, alabamos y bendecimos; a ti la gloria por los siglos de los siglos.</p>
+<p class="vr r pueblo"><b class="m" aria-label="Respuesta">R.</b> Amén.</p>
+<p class="rub">Todos inclinados.</p>
+<p class="vr v"><b class="m" aria-label="Versículo">V.</b> Bendigamos al Padre y al Hijo y al Espíritu Santo.</p>
+<p class="vr r pueblo"><b class="m" aria-label="Respuesta">R.</b> Alabémoslo y ensalcémoslo por todos los siglos de los siglos. Amén.</p>
+<h2 id="trisagio-s6">Oración</h2>
+<p class="rub">Se hace un breve silencio y después dice la oración.</p>
+<p class="pr">Al proclamar nuestra fe en la verdadera y eterna divinidad, adoramos a tres personas distintas, en la unidad de un solo ser e iguales en su majestad, que nos aproveche, Dios nuestro, para la salvación del cuerpo y del alma. Por Jesucristo, nuestro Señor.</p>
+<p class="vr r pueblo"><b class="m" aria-label="Respuesta">R.</b> Amén.</p>
+<h2 id="trisagio-s7">Gozos a la Santísima Trinidad</h2>
+<p class="rub">Jefe del primer coro:</p>
+<p class="ver"><span class="ln">Dios Uno y Trino, a quien tanto</span><span class="ln">ángeles y querubines</span><span class="ln">dicen: ¡Santo, Santo, Santo!</span><span class="ln">A ti, amable deidad</span><span class="ln">humildes hoy veneramos,</span><span class="ln">y que clamamos perdones</span><span class="ln">nuestra ignorancia y maldad,</span><span class="ln">por esta benignidad</span><span class="ln">en su misterioso canto.</span></p>
+<p class="rub">Todos:</p>
+<p class="ver pueblo"><span class="ln">Ángeles y querubines</span><span class="ln">dicen: Santo, Santo, Santo.</span></p>
+<p class="rub">Jefe del primer coro:</p>
+<p class="ver"><span class="ln">Santísima Trinidad,</span><span class="ln">una esencia soberana,</span><span class="ln">de donde el bien nos dimana</span><span class="ln">solamente por bondad:</span><span class="ln">y porque tu piedad</span><span class="ln">pone fin a nuestro llanto.</span></p>
+<p class="rub">Todos:</p>
+<p class="ver pueblo"><span class="ln">Ángeles y querubines</span><span class="ln">dicen: Santo, Santo, Santo.</span></p>
+<p class="rub">Jefe del primer coro:</p>
+<p class="ver"><span class="ln">El trisagio que Isaías</span><span class="ln">escribió con grande celo,</span><span class="ln">lo oyó cantar en el cielo</span><span class="ln">a angélicas jerarquías,</span><span class="ln">para que a sus melodías</span><span class="ln">repita nuestra voz cuánto.</span></p>
+<p class="rub">Todos:</p>
+<p class="ver pueblo"><span class="ln">Ángeles y querubines</span><span class="ln">dicen: Santo, Santo, Santo.</span></p>
+<p class="rub">Jefe del primer coro:</p>
+<p class="ver"><span class="ln">Este trisagio sagrado,</span><span class="ln">voz del coro celestial,</span><span class="ln">contra el poder infernal</span><span class="ln">la Iglesia lo ha celebrado,</span><span class="ln">y también más exaltado</span><span class="ln">es Dios con él, entretanto.</span></p>
+<p class="rub">Todos:</p>
+<p class="ver pueblo"><span class="ln">Ángeles y querubines</span><span class="ln">dicen: Santo, Santo, Santo.</span></p>
+<p class="rub">Jefe del primer coro:</p>
+<p class="ver"><span class="ln">De la súbita muerte,</span><span class="ln">del rayo, peste y temblor,</span><span class="ln">el Trisagio por favor</span><span class="ln">indemniza nuestra suerte,</span><span class="ln">y como el brazo del fuerte</span><span class="ln">nos libra en todo quebranto.</span></p>
+<p class="rub">Todos:</p>
+<p class="ver pueblo"><span class="ln">Ángeles y querubines</span><span class="ln">dicen: Santo, Santo, Santo.</span></p>
+<p class="rub">Jefe del primer coro:</p>
+<p class="ver"><span class="ln">Es el iris que en el mar,</span><span class="ln">en la tierra y en el fuego</span><span class="ln">y en el aire ostenta luego</span><span class="ln">que nos quiere libertar,</span><span class="ln">por gracia tan singular</span><span class="ln">con que nos protege tanto.</span></p>
+<p class="rub">Todos:</p>
+<p class="ver pueblo"><span class="ln">Ángeles y querubines</span><span class="ln">dicen: Santo, Santo, Santo.</span></p>
+<p class="rub">Jefe del primer coro:</p>
+<p class="ver"><span class="ln">El escudo soberano</span><span class="ln">de la divina justicia,</span><span class="ln">con que de infernal malicia</span><span class="ln">triunfa el devoto cristiano;</span><span class="ln">y como el dragón tirano</span><span class="ln">huye de terror y espanto.</span></p>
+<p class="rub">Todos:</p>
+<p class="ver pueblo"><span class="ln">Ángeles y querubines</span><span class="ln">dicen: Santo, Santo, Santo.</span></p>
+<p class="rub">Jefe del primer coro:</p>
+<p class="ver"><span class="ln">Yo confío en vuestro amor,</span><span class="ln">santo Dios, fuerte, inmortal,</span><span class="ln">que en el coro celestial</span><span class="ln">cantaré con más fervor</span><span class="ln">el himno que tanto honor</span><span class="ln">os causa, cuando en su canto.</span></p>
+<p class="rub">Todos:</p>
+<p class="ver pueblo"><span class="ln">Ángeles y querubines</span><span class="ln">dicen: Santo, Santo, Santo.</span></p>
+<p class="rub">Jefe del primer coro:</p>
+<p class="ver"><span class="ln">Y a la que es sagrario y templo</span><span class="ln">de esa augusta Trinidad,</span><span class="ln">reverentes celebrad,</span><span class="ln">que muy justo lo contemplo;</span><span class="ln">pues por ser en él ejemplo</span><span class="ln">y en él encenderse tanto.</span></p>
+<p class="rub">Todos:</p>
+<p class="ver pueblo"><span class="ln">Ángeles y querubines</span><span class="ln">dicen: Santo, Santo, Santo.</span></p>
+<h2 id="trisagio-s8">Antífona</h2>
+<p class="rub">Jefe del primer coro:</p>
+<p class="pr">Bendita sea la Santa Trinidad, que todas las cosas crea y gobierna ahora y siempre y por los siglos de los siglos. Amén.</p>
+<p class="rub">Todos inclinados.</p>
+<p class="vr v"><b class="m" aria-label="Versículo">V.</b> Bendigamos al Padre y al Hijo y al Espíritu Santo.</p>
+<p class="vr r pueblo"><b class="m" aria-label="Respuesta">R.</b> Alabémoslo y ensalcémoslo por todos los siglos de los siglos. Amén.</p>
+<h2 id="trisagio-s9">Oración</h2>
+<p class="rub">Se hace un breve silencio y después dice la oración.</p>
+<p class="rub">Jefe del primer coro:</p>
+<p class="pr">Virgen santa, nuestra Madre y Reina, hoy que la Iglesia entona con más fervor las alabanzas de la Santísima Trinidad, alcánzanos la gracia de que la fe, la esperanza y el amor inunden nuestros corazones.</p>
+<p class="vr r pueblo"><b class="m" aria-label="Respuesta">R.</b> Amén.</p>
+<h2 id="trisagio-s10">Ofrecimiento para ganar las indulgencias</h2>
+<p class="rub">Todos de rodillas. Jefe del primer coro:</p>
+<p class="pr">Te rogamos, Señor, por las necesidades de la Iglesia y las del Estado; por la exaltación de la santa fe católica; por la paz y concordia entre los gobernantes cristianos; la conversión de todos los pecadores; por los presos, enfermos y agonizantes, navegantes y caminantes, por las benditas almas del Purgatorio.</p>
+<p class="vr r pueblo"><b class="m" aria-label="Respuesta">R.</b> Amén.</p>
+<p class="rub">Todos, semitonado y con inclinación profunda.</p>
+<p class="pr pueblo">Bendita y alabada sea la Santísima Trinidad, Padre, Hijo y Espíritu Santo, el Santísimo Sacramento del altar y la purísima Concepción de María santísima, amparo, refugio y Señora nuestra, concebida sin mancha de pecado original. Amén.</p>
+<h2 id="trisagio-s11">Acto de adoración de san Alfonso María de Ligorio</h2>
+<h3>Visita al Santísimo</h3>
+<p class="rub">Que deberá orarse todos los días al principio de cada visita al Santísimo Sacramento y a continuación del Trisagio.</p>
+<p class="pr">Señor mío Jesucristo, que por el amor que tienes a los hombres estás de noche y de día en este Sacramento, lleno de piedad y de amor, esperando, llamando</p>
+<p class="nota">El texto continúa en la pág. 219 del Ritual.</p>
+<p class="fuente">Tomado del Ritual de la Adoración Nocturna Mexicana, págs. 207 a 218.</p>
+</article>
+</main>
+<div id="barra" class="ui" hidden>
+  <button id="menos" type="button" aria-label="Letra más chica">A−</button>
+  <button id="mas" type="button" aria-label="Letra más grande">A+</button>
+  <button id="ira" type="button">Ir a…</button>
+  <button id="aj" type="button">Ajustes</button>
+</div>
+
+<dialog id="dlg-ira" class="ui" aria-labelledby="t-ira">
+  <div class="cab"><h2 id="t-ira">Ir a…</h2><button type="button" data-cerrar>Cerrar</button></div>
+  <div class="cuerpo"><ul id="lista"></ul></div>
+</dialog>
+<dialog id="dlg-aj" class="ui" aria-labelledby="t-aj">
+  <div class="cab"><h2 id="t-aj">Ajustes</h2><button type="button" data-cerrar>Cerrar</button></div>
+  <div class="cuerpo">
+    <div class="grupo"><h3>Iluminación</h3>
+      <div class="ops" data-grupo="tema">
+        <button type="button" data-v="oscuro">Oscuro</button><button type="button" data-v="claro">Claro</button>
+        <button type="button" data-v="sepia">Sepia</button><button type="button" data-v="contraste">Alto contraste</button>
+      </div>
+      <p class="ayuda">Para más o menos brillo, usa también el control de brillo de tu celular.</p>
+    </div>
+    <div class="grupo"><h3>Tipo de letra</h3>
+      <div class="ops" data-grupo="letra">
+        <button type="button" data-v="serif" style="font-family:Georgia,'Noto Serif',serif">Clásica</button>
+        <button type="button" data-v="sans">Sencilla</button>
+      </div>
+    </div>
+    <div class="grupo"><h3>Pantalla encendida</h3>
+      <div class="ops" data-grupo="vela">
+        <button type="button" data-v="si">Sí</button><button type="button" data-v="no">No</button>
+      </div>
+      <p class="ayuda" id="vela-txt" role="status"></p>
+    </div>
+    <div class="grupo"><h3>Sin señal</h3>
+      <p class="ayuda" id="sin-red" role="status" style="margin-top:0"></p>
+    </div>
+  </div>
+</dialog>
+
+<script>
+(function(){
+var NAV={"te-deum": [["te-deum-s1", "Te Deum"], ["te-deum-s2", "Oración"], ["te-deum-s3", "Te Deum en acción de gracias"], ["te-deum-s4", "Oración de acción de gracias"], ["te-deum-s5", "Preces expiatorias"]], "desagravio": [["desagravio-s1", "Acto de desagravio"], ["desagravio-s2", "Oración por los agonizantes"], ["desagravio-s3", "Deprecaciones en cada hora de vela"], ["desagravio-s4", "Oración a san Miguel, arcángel"]], "trisagio": [["trisagio-s1", "Tercer turno de vela"], ["trisagio-s2", "Trisagio a la Santísima Trinidad"], ["trisagio-s3", "Acto de contrición"], ["trisagio-s4", "Himno"], ["trisagio-s5", "Antífona"], ["trisagio-s6", "Oración"], ["trisagio-s7", "Gozos a la Santísima Trinidad"], ["trisagio-s8", "Antífona final"], ["trisagio-s9", "Oración a la Virgen"], ["trisagio-s10", "Ofrecimiento para ganar las indulgencias"], ["trisagio-s11", "Acto de adoración de san Alfonso María de Ligorio"]]}, MIN=16, MAX=52, PASO=2;
+var raiz=document.documentElement, $=function(i){return document.getElementById(i)};
+var docs=[].slice.call(document.querySelectorAll('.doc')), tabs=[].slice.call(document.querySelectorAll('.tab'));
+var aj={tema:'oscuro',letra:'serif',tam:24,vela:'si'}, pos={}, actual=null, lock=null;
+function leer(k){try{return JSON.parse(localStorage.getItem(k)||'null')}catch(e){return null}}
+function guardar(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}
+var g=leer('ajustes'); if(g)for(var k in g)aj[k]=g[k];
+pos=leer('posicion')||{};
+var ult=leer('ultimo');
+$('barra').hidden=false;
+
+/* Bloques de cada oración, para recordar por dónde va cada quien */
+function bloques(d){return d.querySelectorAll('h1,h2,h3,p,li')}
+function bloqueArriba(){
+  var d=$(actual), bs=bloques(d), lim=$('tabs').offsetHeight+4;
+  for(var i=0;i<bs.length;i++){if(bs[i].getBoundingClientRect().bottom>lim)return i}
+  return 0;
+}
+function irBloque(i){
+  var bs=bloques($(actual)), b=bs[Math.min(i,bs.length-1)];
+  if(!b||i<=0){scrollTo(0,0);return}
+  scrollTo(0,b.getBoundingClientRect().top+scrollY-$('tabs').offsetHeight-8);
+}
+var t=null;
+addEventListener('scroll',function(){clearTimeout(t);t=setTimeout(function(){if(actual){pos[actual]=bloqueArriba();guardar('posicion',pos)}},200)},{passive:true});
+
+function mostrar(id,sec){
+  if(actual&&!sec)pos[actual]=bloqueArriba();
+  actual=id;
+  docs.forEach(function(d){d.classList.toggle('activo',d.id===id)});
+  tabs.forEach(function(a){if(a.dataset.doc===id)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current')});
+  guardar('ultimo',id);guardar('posicion',pos);
+  if(sec){var e=$(sec);if(e)scrollTo(0,e.getBoundingClientRect().top+scrollY-$('tabs').offsetHeight-8)}
+  else irBloque(pos[id]||0);
+  lista();
+}
+tabs.forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();mostrar(a.dataset.doc);try{history.replaceState(null,'','#'+a.dataset.doc)}catch(x){}})});
+
+/* Tamaño de letra: conserva el lugar de lectura */
+function aplicar(){
+  raiz.dataset.tema=aj.tema;raiz.dataset.letra=aj.letra;raiz.style.setProperty('--tam',aj.tam+'px');
+  var c=getComputedStyle(raiz).getPropertyValue('--fondo').trim();
+  document.querySelector('meta[name=theme-color]').content=c;
+  $('menos').disabled=aj.tam<=MIN;$('mas').disabled=aj.tam>=MAX;
+  [].forEach.call(document.querySelectorAll('[data-grupo]'),function(gr){
+    [].forEach.call(gr.children,function(b){b.setAttribute('aria-pressed',String(aj[gr.dataset.grupo]===b.dataset.v))});
+  });
+  guardar('ajustes',aj);
+}
+function tam(dl){var i=bloqueArriba();aj.tam=Math.max(MIN,Math.min(MAX,aj.tam+dl));aplicar();irBloque(i)}
+$('menos').onclick=function(){tam(-PASO)};
+$('mas').onclick=function(){tam(PASO)};
+
+[].forEach.call(document.querySelectorAll('[data-grupo]'),function(gr){
+  gr.addEventListener('click',function(e){
+    var b=e.target.closest('button');if(!b)return;
+    var i=bloqueArriba();aj[gr.dataset.grupo]=b.dataset.v;aplicar();irBloque(i);
+    if(gr.dataset.grupo==='vela')vela();
+  });
+});
+
+/* Paneles */
+function lista(){
+  var ul=$('lista');ul.textContent='';
+  (NAV[actual]||[]).forEach(function(n){
+    var li=document.createElement('li'),a=document.createElement('a');
+    a.href='#'+n[0];a.textContent=n[1];
+    a.onclick=function(e){e.preventDefault();$('dlg-ira').close();mostrar(actual,n[0])};
+    li.appendChild(a);ul.appendChild(li);
+  });
+}
+$('ira').onclick=function(){$('dlg-ira').showModal()};
+$('aj').onclick=function(){estadoVela();estadoRed();$('dlg-aj').showModal()};
+[].forEach.call(document.querySelectorAll('dialog'),function(d){
+  d.addEventListener('click',function(e){if(e.target===d||e.target.hasAttribute('data-cerrar'))d.close()});
+});
+
+/* Mantener la pantalla encendida */
+function estadoVela(){
+  var x=$('vela-txt');
+  if(aj.vela!=='si')x.textContent='Tu celular puede apagar la pantalla según su configuración.';
+  else if(!('wakeLock' in navigator))x.textContent='Este celular no lo permite desde el navegador. Sube el tiempo de apagado en la configuración del celular.';
+  else if(lock)x.textContent='Activa: la pantalla no se apagará mientras esta página esté abierta.';
+  else x.textContent='Se activará al tocar la pantalla.';
+}
+function vela(){
+  if(aj.vela!=='si'){if(lock){lock.release();lock=null}estadoVela();return}
+  if(!('wakeLock' in navigator)||lock||document.visibilityState!=='visible'){estadoVela();return}
+  navigator.wakeLock.request('screen').then(function(l){lock=l;l.addEventListener('release',function(){lock=null;estadoVela()});estadoVela()}).catch(function(){estadoVela()});
+}
+document.addEventListener('visibilitychange',function(){if(document.visibilityState==='visible')vela()});
+document.addEventListener('pointerdown',function(){if(!lock)vela()},{passive:true});
+
+/* Sin conexión */
+function estadoRed(){
+  var x=$('sin-red'),c=navigator.serviceWorker&&navigator.serviceWorker.controller;
+  x.textContent=c?'Lista: esta página ya se puede leer aunque no haya señal.':'Abre la página una vez más con señal para poder leerla sin conexión.';
+}
+if('serviceWorker' in navigator&&(location.protocol==='https:'||location.hostname==='localhost')){navigator.serviceWorker.register('sw.js').catch(function(){})}
+
+/* Inicio */
+aplicar();
+var h=location.hash.slice(1), sec=null, ini=null;
+if($(h)&&$(h).classList.contains('doc'))ini=h;
+else if($(h)&&$(h).closest('.doc')){ini=$(h).closest('.doc').id;sec=h}
+if(!ini)ini=(ult&&$(ult))?ult:docs[0].id;
+mostrar(ini,sec);
+vela();
+})();
+</script>
+</body>
+</html>
